@@ -1,4 +1,4 @@
-package itpark2021.homework.spring.springhomework;
+package lesson29.SpringShell;
 
 
 import org.springframework.boot.SpringApplication;
@@ -9,5 +9,4 @@ public class ShellStarter {
     public static void main(String[] args) {
         SpringApplication.run(ShellStarter.class, args);
     }
-
 }

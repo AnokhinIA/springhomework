@@ -1,4 +1,4 @@
-package itpark2021.homework.spring.springhomework.config;
+package lesson29.SpringShell.config;
 
 import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.Bean;
