@@ -1,0 +1,69 @@
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+
+    <!--
+    Единый государственный реестр субъектов страхового дела |  register_of_insurance_entity
+    https://cbr.ru/vfs/finmarkets/files/supervision/list_ssd.xlsx
+    + Федеральный округ |federal_district
+    Субъект федерации |  sub_federal_entity
+    Рег. Номер | registration_number
+    Наименование субъекта страхового дела | name
+    Местонахождение	Новый адрес (при наличии)| address
+    Средства связи| mean_of_communication
+    ИНН	ОГРН/ОГРНИП| personal_tax_reference_number
+    Лицензия | licence
+    Виды деятельности |  line_of_business
+    Виды страхования, осуществляемые в рамках вида деятельности | class_of_insurance
+    TODO Требуется нормализовать таблицу, у каждого страховщика может быть множенство видов стрвхования
+    Номер лицензии | number_of_licence
+    Дата выдачи | date_of_issue
+    Статус |status
+    -->
+
+
+    <changeSet author="Igor Anokhin" id="Create-table-insurers">
+        <preConditions>
+            <not>
+                <tableExists tableName="insurers"/>
+            </not>
+        </preConditions>
+        <createTable tableName="insurers">
+            <column name="id" type="BIGINT" autoIncrement="true">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="federal_district" type="VARCHAR(255)">
+                <constraints nullable="true" unique="false"/>
+            </column>
+            <column name="address" type="VARCHAR(255)">
+                <constraints nullable="false" unique="true"/>
+            </column>
+            <column name="name" type="VARCHAR(255)">
+                <constraints nullable="false" unique="true"/>
+            </column>
+            <column name="personal_tax_reference_number" type="INT">
+                <constraints nullable="true" unique="false"/>
+            </column>
+            <column name="line_of_business" type="VARCHAR(255)">
+                <constraints nullable="true" unique="false"/>
+            </column>
+            <!--TODO Подумать, как оптимизировать таблицу, у каждого страховщика может много разных видов страхования
+                Пока каждый вид выделен в колонку с возможным значение да или нет
+             -->
+            <column name="cargo" type="BOOLEAN">
+                <constraints nullable="true" unique="false"/>
+            </column>
+            <column name="motor" type="BOOLEAN">
+                <constraints nullable="true" unique="false"/>
+            </column>
+            <column name="hull" type="BOOLEAN">
+                <constraints nullable="true" unique="false"/>
+            </column>
+            <column name="property" type="BOOLEAN">
+                <constraints nullable="true" unique="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+</databaseChangeLog>
