@@ -35,8 +35,8 @@ public class InsurersController  {
     }
 
     @ShellMethod (value = "Delete insurers", key = "Del")
-    public void deleteInsurer (long ID){
-        insurersRepositories.deleteAllById(Collections.singleton(ID));
+    public void deleteInsurer (long iD){
+        insurersRepositories.deleteAllById(Collections.singleton(iD));
     }
 
     @ShellMethod (value = "Show all insurers", key = "Show")
