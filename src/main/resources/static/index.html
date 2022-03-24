@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Lesson 32. Web page.</title>
+    <link rel="stylesheet" href="/webjars/bootstrap/4.5.0/css/bootstrap.min.css"/>
+    <script src="/webjars/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body class="bg-light">
+<div class="container">
+    <main>
+        <div class="py-5 text-center">
+            <h2>Конвертор валюты</h2>
+            <p class="lead">В форме ниже вы сможете осуществить конвертацию валют</p>
+        </div>
+
+        <div class="col-md-8 col-lg-8">
+            <form class="needs-validation" novalidate>
+                <div class="row">
+                    <div class="col-md-6">
+                        <label for="source-currency" class="form-label">Исходная валюта</label>
+                        <select class="form-select" id="source-currency" required>
+                            <option value="">...</option>
+                            <option>USD</option>
+                            <option>RUR</option>
+                            <option>EUR</option>
+                        </select>
+                        <div class="invalid-feedback">
+                            Пожалуйста выберите валюту
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <label for="result-currency" class="form-label">Конечная валюта</label>
+                        <select class="form-select" id="result-currency" required>
+                            <option value="">...</option>
+                            <option>USD</option>
+                            <option>RUR</option>
+                            <option>EUR</option>
+                        </select>
+                        <div class="invalid-feedback">
+                            Пожалуйста выберите валюту
+                        </div>
+                    </div>
+                </div>
+                <hr class="my-4">
+                <div class="row">
+
+                    <div class="col-md-6">
+                        <!--label for="source-currency-value" class="form-label">Сумма в исходной валюте</label-->
+                        <input type="text" class="form-control" id="source-currency-value" placeholder="" required>
+                        <div class="invalid-feedback">
+                            Требуется указать сумму в исходной валюте для расчета
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <input type="text" readonly class="form-control-plaintext" id="result-value" value="Результат">
+                    </div>
+                </div>
+                <hr class="my-4">
+                <button class="w-50 btn btn-primary btn-lg" type="submit">Рассчитать</button>
+
+            </form>
+        </div>
+    </main>
+
+    <footer class="my-5 pt-5 text-muted text-center text-small">
+        <p class="mb-1">&copy; 2022 Игорь Анохин</p>
+        <ul class="list-inline">
+            <li class="list-inline-item"><a href="#">Условия использования сервиса</a></li>
+            <li class="list-inline-item"><a href="#">Поддержка</a></li>
+        </ul>
+    </footer>
+</div>
+<script src="js/form-validation.js"></script>
+</body>
+</html>

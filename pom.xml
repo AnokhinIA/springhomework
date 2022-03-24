@@ -32,7 +32,6 @@
             <artifactId>spring-shell-starter</artifactId>
             <version>${shell.version}</version>
         </dependency>
-
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
@@ -70,7 +69,6 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
-            <version>2.5.7</version>
         </dependency>
         <dependency>
             <groupId>org.webjars</groupId>
