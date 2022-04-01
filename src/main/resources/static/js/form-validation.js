@@ -13,8 +13,18 @@
                     event.preventDefault()
                     event.stopPropagation()
                 }
-
                 form.classList.add('was-validated')
+            //TODO Здесь добавить AJAX запрос к серверу
+
+                $.ajax({
+                    url: '/index/convert?result-currency=' + result-currency + '&source-currency=' + source-currency + '&source-value' + source-value,
+                    type: 'POST',
+                    success: function (result) {
+                        $('#result-value').text(result.value);
+                        alert(result);
+                    }
+                });
+
             }, false)
         })
 })()

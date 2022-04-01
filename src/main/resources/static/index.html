@@ -19,11 +19,11 @@
                 <div class="row">
                     <div class="col-md-6">
                         <label for="source-currency" class="form-label">Исходная валюта</label>
-                        <select class="form-select" id="source-currency" required>
+                        <select class="form-select" name="source-currency" id="source-currency" required>
                             <option value="">...</option>
-                            <option>USD</option>
-                            <option>RUR</option>
-                            <option>EUR</option>
+                            <option value="USD">USD</option>
+                            <option value="RUR">RUR</option>
+                            <option value="EUR">EUR</option>
                         </select>
                         <div class="invalid-feedback">
                             Пожалуйста выберите валюту
@@ -32,11 +32,11 @@
 
                     <div class="col-md-6">
                         <label for="result-currency" class="form-label">Конечная валюта</label>
-                        <select class="form-select" id="result-currency" required>
+                        <select class="form-select" name="result-currency" id="result-currency" required>
                             <option value="">...</option>
-                            <option>USD</option>
-                            <option>RUR</option>
-                            <option>EUR</option>
+                            <option value="USD">USD</option>
+                            <option value="RUR">RUR</option>
+                            <option value="EUR">EUR</option>
                         </select>
                         <div class="invalid-feedback">
                             Пожалуйста выберите валюту
@@ -48,7 +48,7 @@
 
                     <div class="col-md-6">
                         <!--label for="source-currency-value" class="form-label">Сумма в исходной валюте</label-->
-                        <input type="text" class="form-control" id="source-currency-value" placeholder="" required>
+                        <input type="text" class="form-control" name="source-value" id="source-currency-value" placeholder="" required>
                         <div class="invalid-feedback">
                             Требуется указать сумму в исходной валюте для расчета
                         </div>
