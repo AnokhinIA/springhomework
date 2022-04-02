@@ -18,6 +18,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class WebStarter {
 
     public static void main(String[] args) {
-        SpringApplication.run(WebStarter.class,args);
+        SpringApplication.run(WebStarter.class, args);
     }
 }

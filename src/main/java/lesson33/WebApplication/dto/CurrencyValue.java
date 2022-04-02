@@ -1,10 +1,15 @@
 package lesson33.WebApplication.dto;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
 
+import java.math.BigDecimal;
+
+@AllArgsConstructor
+@Getter
 public class CurrencyValue {
-    private double value;
-    private String currency;
+    private BigDecimal value;
+    private String sourceCurrency;
+    private String resultCurrency;
 
-    public CurrencyValue(double v, String usd) {
-    }
 }

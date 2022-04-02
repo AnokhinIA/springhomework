@@ -1,30 +1,38 @@
 // Example starter JavaScript for disabling form submissions if there are invalid fields
 (function () {
-    'use strict'
+    $('#convert').click(function () {
+        let sourceCurrency = $('#source-currency').val();
+        let resultCurrency = $('#result-cerrency').val();
+        let sourceCurrencyValue = $('#source-currency-value').val();
 
-    // Fetch all the forms we want to apply custom Bootstrap validation styles to
-    var forms = document.querySelectorAll('.needs-validation')
+        if (!sourceCurrencyValue) {
+            $('#source-currency-value').removeClass();
+            $('#source-currency-value').addClass("form-control is-invalid");
+        } else {
+            if (sourceCurrencyValue < 0) {
+                $('#source-currency-value').removeClass();
+                $('#source-currency-value-invalid-feedback').text("Число должно быть больше нуля.")
+                $('#source-currency-value').addClass("form-control is-invalid");
+            } else {
+                $('#source-currency-value').removeClass();
+                $('#source-currency-value').addClass("form-control is-valid");
+            }
+        }
 
-    // Loop over them and prevent submission
-    Array.prototype.slice.call(forms)
-        .forEach(function (form) {
-            form.addEventListener('submit', function (event) {
-                if (!form.checkValidity()) {
-                    event.preventDefault()
-                    event.stopPropagation()
+        if ($('#source-currency-value').hasClass("form-control is-valid")) {
+            $('#result-value').val("");
+            $.ajax({
+                url: 'http://localhost:8080/convert?source-currency=' + sourceCurrency +
+                    '&result-currency=' + resultCurrency +
+                    '&source-currency-value=' + sourceCurrencyValue,
+                type: 'POST',
+                success: function (result) {
+                    $('#result-value').val("Результат: " + result.value + " рублей РФ.");
                 }
-                form.classList.add('was-validated')
-            //TODO Здесь добавить AJAX запрос к серверу
+            });
+        } else {
+            $('#result-value').val("Расчет невозможен");
+        }
+    });
 
-                $.ajax({
-                    url: '/index/convert?result-currency=' + result-currency + '&source-currency=' + source-currency + '&source-value' + source-value,
-                    type: 'POST',
-                    success: function (result) {
-                        $('#result-value').text(result.value);
-                        alert(result);
-                    }
-                });
-
-            }, false)
-        })
 })()
